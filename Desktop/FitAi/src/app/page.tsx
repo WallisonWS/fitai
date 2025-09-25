@@ -15,6 +15,7 @@ import { toast } from "sonner";
 import { AuthForm } from "@/components/auth-form";
 import { StatusDashboard } from "@/components/status-dashboard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ChatWidget } from "@/components/chat-widget";
 
 const formSchema = z.object({
   idade: z.string().min(1, "Idade é obrigatória").max(3, "Idade inválida"),
@@ -385,6 +386,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+      
+      {/* Chat Widget */}
+      <ChatWidget />
     </div>
   );
 }
