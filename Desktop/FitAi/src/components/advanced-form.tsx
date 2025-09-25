@@ -22,7 +22,7 @@ const formSchema = z.object({
   idade: z.string().min(1, "Idade é obrigatória").max(3, "Idade inválida"),
   peso: z.string().min(1, "Peso é obrigatório").max(6, "Peso inválido"),
   altura: z.string().min(1, "Altura é obrigatória").max(6, "Altura inválida"),
-  sexo: z.enum(["masculino", "feminino"], { required_error: "Selecione o sexo" }),
+  sexo: z.enum(["masculino", "feminino"], { message: "Selecione o sexo" }),
   
   // Objetivos
   objetivo: z.string().min(1, "Objetivo é obrigatório"),
