@@ -8,7 +8,9 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
-  // Ensure proper webpack configuration for both dev and production
+  // Simplified configuration for Vercel deployment
+  output: 'standalone',
+  // Remove webpack polling for production
   webpack: (config, { dev, isServer }) => {
     // Only apply webpack watch options in development
     if (dev && !isServer) {
@@ -18,20 +20,6 @@ const nextConfig: NextConfig = {
       };
     }
     return config;
-  },
-  // PWA configuration
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-    ];
   },
 };
 
