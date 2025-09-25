@@ -8,8 +8,11 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
-  // Simplified configuration for Vercel deployment
-  output: 'standalone',
+  // Configuration for multiple platforms
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
   // Remove webpack polling for production
   webpack: (config, { dev, isServer }) => {
     // Only apply webpack watch options in development
