@@ -7,10 +7,26 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || 'AIzaSyBwAZ8W
 export const gemini = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
 export async function generateFitnessPlan(prompt: string): Promise<string> {
-  // Temporariamente retornando plano fixo para teste
-  console.log("Gerando plano de teste...");
-  
-  return `
+  try {
+    console.log("Tentando gerar plano com Gemini AI...");
+    
+    // Tentar usar o Gemini primeiro
+    const result = await gemini.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
+    
+    if (text && text.length > 100) {
+      console.log("✅ Plano gerado com sucesso usando Gemini AI");
+      return text;
+    }
+    
+    throw new Error("Resposta muito curta do Gemini");
+    
+  } catch (geminiError) {
+    console.warn("⚠️ Gemini falhou, usando plano de exemplo:", geminiError);
+    
+    // Fallback para plano de exemplo personalizado
+    return `
 # 🏋️ SEU PLANO PERSONALIZADO DE EMAGRECIMENTO
 
 ## 📅 PLANO DE TREINAMENTO SEMANAL

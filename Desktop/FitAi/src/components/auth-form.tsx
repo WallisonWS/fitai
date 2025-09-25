@@ -42,7 +42,9 @@ export function AuthForm({ onAuthSuccess }: AuthFormProps) {
           throw result.error;
         }
         
-        toast.success("Conta criada! Verifique seu email para confirmar.");
+        toast.success("🎉 Conta criada com sucesso! Verifique seu email para confirmar e depois entre no site.", {
+          duration: 5000,
+        });
       } else {
         // Login
         result = await supabase.auth.signInWithPassword({

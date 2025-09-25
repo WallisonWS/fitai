@@ -98,14 +98,14 @@ export default function Home() {
   // if (!authToken) { ... }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-100 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4 py-8">
         {/* Header com usuário e logout */}
         <div className="flex flex-col sm:flex-row justify-between items-center mb-6 sm:mb-8 gap-4">
           <div className="flex items-center gap-2">
-            <Dumbbell className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />
-            <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white">FitAI</h1>
-            <Apple className="h-6 w-6 sm:h-8 sm:w-8 text-green-600" />
+            <Dumbbell className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-600" />
+            <h1 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">FitAI</h1>
+            <Apple className="h-6 w-6 sm:h-8 sm:w-8 text-orange-500" />
           </div>
           
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 w-full sm:w-auto">
@@ -125,21 +125,7 @@ export default function Home() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <Tabs defaultValue="generate" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 h-12 sm:h-auto">
-              <TabsTrigger value="generate" className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm px-2 sm:px-4 py-2">
-                <Target className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="hidden sm:inline">Gerar Plano</span>
-                <span className="sm:hidden">Plano</span>
-              </TabsTrigger>
-              <TabsTrigger value="status" className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm px-2 sm:px-4 py-2">
-                <Activity className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="hidden sm:inline">Sistema</span>
-                <span className="sm:hidden">Status</span>
-              </TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="generate" className="mt-6">
+          <div className="w-full">
               {!generatedPlan ? (
                 <Card className="w-full">
                   <CardHeader>
@@ -340,12 +326,7 @@ export default function Home() {
                   </CardContent>
                 </Card>
               )}
-            </TabsContent>
-            
-            <TabsContent value="status" className="mt-6">
-              <StatusDashboard />
-            </TabsContent>
-          </Tabs>
+          </div>
         </div>
 
         {/* Features Section */}
