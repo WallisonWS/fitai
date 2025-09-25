@@ -1,47 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Loader2, Dumbbell, Apple, Target, LogOut, Activity } from "lucide-react";
-import { toast } from "sonner";
-import { AuthForm } from "@/components/auth-form";
-import { ChatWidget } from "@/components/chat-widget";
+import { Loader2, Dumbbell, Apple, Target } from "lucide-react";
 
-const formSchema = z.object({
-  idade: z.string().min(1, "Idade é obrigatória").max(3, "Idade inválida"),
-  peso: z.string().min(1, "Peso é obrigatório").max(6, "Peso inválido"),
-  altura: z.string().min(1, "Altura é obrigatória").max(6, "Altura inválida"),
-  objetivo: z.string().min(1, "Objetivo é obrigatório"),
-  rotina: z.string().optional(),
-  restricoes: z.string().optional(),
-});
-
-type FormData = z.infer<typeof formSchema>;
+interface FormData {
+  idade: string;
+  peso: string;
+  altura: string;
+  objetivo: string;
+  rotina?: string;
+  restricoes?: string;
+}
 
 export default function Home() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedPlan, setGeneratedPlan] = useState<string | null>(null);
-  const [authToken, setAuthToken] = useState<string | null>(null);
-  const [userEmail, setUserEmail] = useState<string | null>(null);
-
-  const form = useForm<FormData>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      idade: "",
-      peso: "",
-      altura: "",
-      objetivo: "",
-      rotina: "",
-      restricoes: "",
-    },
+  const [formData, setFormData] = useState<FormData>({
+    idade: "",
+    peso: "",
+    altura: "",
+    objetivo: "",
+    rotina: "",
+    restricoes: "",
   });
 
   const handleAuthSuccess = (token: string) => {
