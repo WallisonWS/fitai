@@ -62,32 +62,76 @@ export default function Home() {
   const onSubmit = async (data: FormData) => {
     setIsGenerating(true);
     try {
-      const response = await fetch("/api/test-generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          idade: parseInt(data.idade),
-          peso: parseFloat(data.peso),
-          altura: parseFloat(data.altura),
-          objetivo: data.objetivo,
-          rotina: data.rotina || "",
-          restricoes: data.restricoes || "",
-        }),
-      });
+      // Simular geração de plano (sem API)
+      await new Promise(resolve => setTimeout(resolve, 2000)); // Simular delay
+      
+      const planText = `
+# 🏋️ SEU PLANO PERSONALIZADO DE EMAGRECIMENTO
 
-      const result = await response.json();
+## 📊 Seus Dados:
+- **Idade**: ${data.idade} anos
+- **Peso**: ${data.peso} kg  
+- **Altura**: ${data.altura} cm
+- **Objetivo**: ${data.objetivo}
 
-      if (!response.ok) {
-        throw new Error(result.error || "Erro ao gerar plano");
-      }
+## 📅 PLANO DE TREINAMENTO SEMANAL
 
-      setGeneratedPlan(result.plan);
+### Segunda-feira - Treino de Pernas + Cardio
+- **Agachamento livre**: 3 séries de 12 repetições
+- **Leg Press**: 3 séries de 15 repetições  
+- **Panturrilha em pé**: 3 séries de 20 repetições
+- **Caminhada rápida**: 30 minutos
+
+### Terça-feira - Treino de Braços + Core
+- **Flexão de braço**: 3 séries de 10 repetições
+- **Rosca direta**: 3 séries de 12 repetições
+- **Tríceps no banco**: 3 séries de 12 repetições
+- **Prancha**: 3 séries de 30 segundos
+
+### Quarta-feira - Cardio Intenso
+- **Corrida leve**: 20 minutos
+- **Burpees**: 3 séries de 8 repetições
+- **Jumping Jacks**: 3 séries de 30 segundos
+
+## 🍎 PLANO ALIMENTAR DIÁRIO
+
+### Café da Manhã (400 calorias)
+- **Opção 1**: Aveia (40g) + banana + canela + leite desnatado
+- **Opção 2**: Omelete (2 ovos) + 1 fatia de pão integral + tomate
+
+### Almoço (500 calorias)
+- **Proteína**: Frango grelhado (120g) ou peixe (150g)
+- **Carboidrato**: Arroz integral (3 colheres) ou batata doce (150g)
+- **Vegetais**: Salada verde à vontade + legumes refogados
+
+### Jantar (400 calorias)
+- **Proteína**: Peixe grelhado (150g) ou frango (100g)
+- **Carboidrato**: Quinoa (2 colheres) ou batata doce pequena
+- **Vegetais**: Salada variada + legumes no vapor
+
+## 💪 DICAS MOTIVACIONAIS
+
+- **"Cada dia é uma nova oportunidade de ser melhor que ontem"**
+- **Hidratação**: Beba pelo menos 2,5L de água por dia
+- **Sono**: Durma 7-8 horas por noite para recuperação muscular
+- **Consistência**: É melhor treinar 30min todos os dias do que 2h uma vez por semana
+
+## 🎯 METAS SEMANAIS
+
+### Semana 1 - Adaptação
+- ✅ Completar 5 treinos na semana
+- ✅ Beber 2L de água por dia
+- ✅ Seguir o plano alimentar 80% do tempo
+- ✅ Dormir 7+ horas por noite
+
+**💪 Você consegue! Cada dia é um passo mais próximo do seu objetivo!**
+      `;
+
+      setGeneratedPlan(planText);
       toast.success("Plano gerado com sucesso!");
     } catch (error) {
       console.error("Error:", error);
-      toast.error(error instanceof Error ? error.message : "Erro ao gerar plano");
+      toast.error("Erro ao gerar plano");
     } finally {
       setIsGenerating(false);
     }

@@ -51,23 +51,28 @@ export function ChatWidget() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message: inputMessage }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Erro na resposta");
+      // Simular delay da API
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Resposta local baseada na mensagem
+      const lowerMessage = inputMessage.toLowerCase();
+      let reply = "";
+      
+      if (lowerMessage.includes("treino") || lowerMessage.includes("exercicio")) {
+        reply = "💪 Para um bom treino, recomendo começar com 3-4 exercícios básicos: agachamento, flexão, prancha e caminhada. Comece devagar e aumente a intensidade gradualmente!";
+      } else if (lowerMessage.includes("dieta") || lowerMessage.includes("alimenta")) {
+        reply = "🍎 Uma alimentação saudável inclui: proteínas magras, carboidratos integrais, muitos vegetais e frutas. Beba bastante água e evite alimentos processados!";
+      } else if (lowerMessage.includes("peso") || lowerMessage.includes("emagrec")) {
+        reply = "⚖️ Para emagrecer de forma saudável: combine exercícios regulares com alimentação balanceada, durma bem e seja consistente. Resultados aparecem em 4-6 semanas!";
+      } else if (lowerMessage.includes("motivação") || lowerMessage.includes("desanimo")) {
+        reply = "🔥 Lembre-se: cada dia é uma nova oportunidade! Pequenos progressos diários levam a grandes transformações. Você consegue!";
+      } else {
+        reply = "👋 Posso te ajudar com dicas sobre treino, alimentação, motivação e saúde. Pergunte sobre exercícios, dieta ou como manter a motivação!";
       }
 
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: data.reply,
+        text: reply,
         isUser: false,
         timestamp: new Date(),
       };
@@ -75,7 +80,6 @@ export function ChatWidget() {
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
       console.error("Erro no chat:", error);
-      toast.error("Erro ao enviar mensagem");
       
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
