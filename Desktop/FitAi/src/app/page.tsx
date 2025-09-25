@@ -13,8 +13,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Loader2, Dumbbell, Apple, Target, LogOut, Activity } from "lucide-react";
 import { toast } from "sonner";
 import { AuthForm } from "@/components/auth-form";
-import { StatusDashboard } from "@/components/status-dashboard";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ChatWidget } from "@/components/chat-widget";
 
 const formSchema = z.object({
