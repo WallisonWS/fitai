@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
+// import { db } from "@/lib/db"; // Temporariamente desabilitado
 import { generateFitnessPlan } from "@/lib/gemini";
-import { validateAuth, checkSubscription } from "@/lib/auth";
+// import { validateAuth, checkSubscription } from "@/lib/auth"; // Temporariamente desabilitado
 
 export async function POST(request: NextRequest) {
   try {
