@@ -61,18 +61,12 @@ export default function Home() {
   };
 
   const onSubmit = async (data: FormData) => {
-    if (!authToken) {
-      toast.error("Por favor, faça login primeiro");
-      return;
-    }
-
     setIsGenerating(true);
     try {
-      const response = await fetch("/api/generate-plan", {
+      const response = await fetch("/api/test-generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${authToken}`,
         },
         body: JSON.stringify({
           idade: parseInt(data.idade),
@@ -100,28 +94,8 @@ export default function Home() {
     }
   };
 
-  if (!authToken) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-        <div className="container mx-auto px-4 py-8">
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Dumbbell className="h-8 w-8 text-blue-600" />
-              <h1 className="text-4xl font-bold text-gray-900 dark:text-white">FitAI</h1>
-              <Apple className="h-8 w-8 text-green-600" />
-            </div>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              Seu personal trainer e nutricionista digital
-            </p>
-          </div>
-          
-          <div className="max-w-md mx-auto">
-            <AuthForm onAuthSuccess={handleAuthSuccess} />
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // Temporariamente removido para teste
+  // if (!authToken) { ... }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
