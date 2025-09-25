@@ -168,5 +168,6 @@ export async function generateFitnessPlan(prompt: string): Promise<string> {
 **💪 LEMBRE-SE: O sucesso está na consistência, não na perfeição!**
 
 **🎯 Você consegue! Cada dia é um passo mais próximo do seu objetivo!**
-  `;
+    `;
+  }
 }
