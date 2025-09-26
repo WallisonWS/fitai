@@ -2,6 +2,137 @@
 
 import { useState } from "react";
 import { Loader2, Dumbbell, Apple, Target } from "lucide-react";
+import { ChatWidget } from "@/components/chat-widget";
+import { Card } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
+import { CardHeader } from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card";
+import { CardHeader } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
+import { CardHeader } from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card";
+import { CardHeader } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
+import { CardHeader } from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card";
+import { CardHeader } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
+import { CardContent } from "@/components/ui/card";
+import { CardHeader } from "@/components/ui/card";
+import { CardDescription } from "@/components/ui/card";
+import { CardDescription } from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card";
+import { CardHeader } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
+import { Form } from "react-hook-form";
+import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
+import { FormItem } from "@/components/ui/form";
+import { FormMessage } from "@/components/ui/form";
+import { FormDescription } from "@/components/ui/form";
+import { FormDescription } from "@/components/ui/form";
+import { FormControl } from "@/components/ui/form";
+import { Textarea } from "@/components/ui/textarea";
+import { FormControl } from "@/components/ui/form";
+import { FormLabel } from "@/components/ui/form";
+import { FormLabel } from "@/components/ui/form";
+import { FormItem } from "@/components/ui/form";
+import { FormField } from "@/components/ui/form";
+import { FormItem } from "@/components/ui/form";
+import { FormMessage } from "@/components/ui/form";
+import { FormDescription } from "@/components/ui/form";
+import { FormDescription } from "@/components/ui/form";
+import { FormControl } from "@/components/ui/form";
+import { Textarea } from "@/components/ui/textarea";
+import { FormControl } from "@/components/ui/form";
+import { FormLabel } from "@/components/ui/form";
+import { FormLabel } from "@/components/ui/form";
+import { FormItem } from "@/components/ui/form";
+import { FormField } from "@/components/ui/form";
+import { FormItem } from "@/components/ui/form";
+import { FormMessage } from "@/components/ui/form";
+import { Select } from "@radix-ui/react-select";
+import { SelectContent } from "@radix-ui/react-select";
+import { SelectItem } from "@radix-ui/react-select";
+import { SelectItem } from "@radix-ui/react-select";
+import { SelectItem } from "@radix-ui/react-select";
+import { SelectItem } from "@radix-ui/react-select";
+import { SelectItem } from "@radix-ui/react-select";
+import { SelectItem } from "@radix-ui/react-select";
+import { SelectItem } from "@radix-ui/react-select";
+import { SelectItem } from "@radix-ui/react-select";
+import { SelectContent } from "@radix-ui/react-select";
+import { FormControl } from "@/components/ui/form";
+import { SelectTrigger } from "@radix-ui/react-select";
+import { SelectValue } from "@radix-ui/react-select";
+import { SelectTrigger } from "@radix-ui/react-select";
+import { FormControl } from "@/components/ui/form";
+import { Select } from "@radix-ui/react-select";
+import { FormLabel } from "@/components/ui/form";
+import { FormLabel } from "@/components/ui/form";
+import { FormItem } from "@/components/ui/form";
+import { FormField } from "@/components/ui/form";
+import { FormItem } from "@/components/ui/form";
+import { FormMessage } from "@/components/ui/form";
+import { FormControl } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { FormControl } from "@/components/ui/form";
+import { FormLabel } from "@/components/ui/form";
+import { FormLabel } from "@/components/ui/form";
+import { FormItem } from "@/components/ui/form";
+import { FormField } from "@/components/ui/form";
+import { FormItem } from "@/components/ui/form";
+import { FormMessage } from "@/components/ui/form";
+import { FormControl } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { FormControl } from "@/components/ui/form";
+import { FormLabel } from "@/components/ui/form";
+import { FormLabel } from "@/components/ui/form";
+import { FormItem } from "@/components/ui/form";
+import { FormField } from "@/components/ui/form";
+import { FormItem } from "@/components/ui/form";
+import { FormMessage } from "@/components/ui/form";
+import { FormControl } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { FormControl } from "@/components/ui/form";
+import { FormLabel } from "@/components/ui/form";
+import { FormLabel } from "@/components/ui/form";
+import { FormItem } from "@/components/ui/form";
+import { FormField } from "@/components/ui/form";
+import { Form } from "react-hook-form";
+import { CardContent } from "@/components/ui/card";
+import { CardHeader } from "@/components/ui/card";
+import { CardDescription } from "@/components/ui/card";
+import { CardDescription } from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card";
+import { CardHeader } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+import { toast } from "sonner";
+import { toast } from "sonner";
 
 interface FormData {
   idade: string;
@@ -44,7 +175,7 @@ export default function Home() {
     try {
       // Simular geração de plano (sem API)
       await new Promise(resolve => setTimeout(resolve, 2000)); // Simular delay
-      
+
       const planText = `
 # 🏋️ SEU PLANO PERSONALIZADO DE EMAGRECIMENTO
 
@@ -130,12 +261,12 @@ export default function Home() {
             <h1 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">FitAI</h1>
             <Apple className="h-6 w-6 sm:h-8 sm:w-8 text-orange-500" />
           </div>
-          
+
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 w-full sm:w-auto">
             <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 text-center sm:text-left truncate max-w-[200px] sm:max-w-none">
               Logado como: {userEmail}
             </div>
-            <Button 
+            <Button
               onClick={handleLogout}
               variant="outline"
               size="sm"
@@ -149,124 +280,39 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto">
           <div className="w-full">
-              {!generatedPlan ? (
-                <Card className="w-full">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Target className="h-5 w-5" />
-                      Gerar Plano Personalizado
-                      <div className="flex items-center gap-1 ml-2">
-                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                        <span className="text-xs text-green-600 font-medium">AI Powered</span>
-                      </div>
-                    </CardTitle>
-                    <CardDescription>
-                      Preencha seus dados para receber um plano de emagrecimento personalizado gerado por IA
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="p-4 sm:p-6">
-                    <Form {...form}>
-                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-                          <FormField
-                            control={form.control}
-                            name="idade"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-sm sm:text-base">Idade</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    type="number" 
-                                    placeholder="30" 
-                                    className="text-sm sm:text-base"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage className="text-xs" />
-                              </FormItem>
-                            )}
-                          />
-
-                          <FormField
-                            control={form.control}
-                            name="peso"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-sm sm:text-base">Peso (kg)</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    type="number" 
-                                    step="0.1"
-                                    placeholder="70.5" 
-                                    className="text-sm sm:text-base"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage className="text-xs" />
-                              </FormItem>
-                            )}
-                          />
-
-                          <FormField
-                            control={form.control}
-                            name="altura"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-sm sm:text-base">Altura (cm)</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    type="number" 
-                                    placeholder="175" 
-                                    className="text-sm sm:text-base"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage className="text-xs" />
-                              </FormItem>
-                            )}
-                          />
-                        </div>
-
+            {!generatedPlan ? (
+              <Card className="w-full">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Target className="h-5 w-5" />
+                    Gerar Plano Personalizado
+                    <div className="flex items-center gap-1 ml-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="text-xs text-green-600 font-medium">AI Powered</span>
+                    </div>
+                  </CardTitle>
+                  <CardDescription>
+                    Preencha seus dados para receber um plano de emagrecimento personalizado gerado por IA
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="p-4 sm:p-6">
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                         <FormField
                           control={form.control}
-                          name="objetivo"
+                          name="idade"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-sm sm:text-base">Objetivo Principal</FormLabel>
-                              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                <FormControl>
-                                  <SelectTrigger className="text-sm sm:text-base">
-                                    <SelectValue placeholder="Selecione seu objetivo" />
-                                  </SelectTrigger>
-                                </FormControl>
-                                <SelectContent>
-                                  <SelectItem value="emagrecer">Emagrecer</SelectItem>
-                                  <SelectItem value="ganhar_massa">Ganhar massa muscular</SelectItem>
-                                  <SelectItem value="manter_peso">Manter peso</SelectItem>
-                                  <SelectItem value="melhorar_saude">Melhorar saúde geral</SelectItem>
-                                </SelectContent>
-                              </Select>
-                              <FormMessage className="text-xs" />
-                            </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                          control={form.control}
-                          name="rotina"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-sm sm:text-base">Rotina Diária</FormLabel>
+                              <FormLabel className="text-sm sm:text-base">Idade</FormLabel>
                               <FormControl>
-                                <Textarea 
-                                  placeholder="Descreva sua rotina diária (ex: trabalho sentado, 3x por semana na academia, etc.)"
-                                  className="resize-none text-sm sm:text-base min-h-[80px] sm:min-h-[100px]"
+                                <Input
+                                  type="number"
+                                  placeholder="30"
+                                  className="text-sm sm:text-base"
                                   {...field}
                                 />
                               </FormControl>
-                              <FormDescription className="text-xs">
-                                Isso nos ajuda a adaptar o plano à sua realidade
-                              </FormDescription>
                               <FormMessage className="text-xs" />
                             </FormItem>
                           )}
@@ -274,81 +320,166 @@ export default function Home() {
 
                         <FormField
                           control={form.control}
-                          name="restricoes"
+                          name="peso"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-sm sm:text-base">Restrições Alimentares</FormLabel>
+                              <FormLabel className="text-sm sm:text-base">Peso (kg)</FormLabel>
                               <FormControl>
-                                <Textarea 
-                                  placeholder="Liste qualquer restrição alimentar (ex: intolerância à lactose, vegetariano, etc.)"
-                                  className="resize-none text-sm sm:text-base min-h-[80px] sm:min-h-[100px]"
+                                <Input
+                                  type="number"
+                                  step="0.1"
+                                  placeholder="70.5"
+                                  className="text-sm sm:text-base"
                                   {...field}
                                 />
                               </FormControl>
-                              <FormDescription className="text-xs">
-                                Deixe em branco se não tiver restrições
-                              </FormDescription>
                               <FormMessage className="text-xs" />
                             </FormItem>
                           )}
                         />
 
-                        <Button 
-                          type="submit" 
-                          className="w-full h-12 sm:h-auto text-sm sm:text-base" 
-                          disabled={isGenerating}
-                        >
-                          {isGenerating ? (
-                            <>
-                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                              IA gerando seu plano...
-                            </>
-                          ) : (
-                            "Gerar Meu Plano com IA"
+                        <FormField
+                          control={form.control}
+                          name="altura"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-sm sm:text-base">Altura (cm)</FormLabel>
+                              <FormControl>
+                                <Input
+                                  type="number"
+                                  placeholder="175"
+                                  className="text-sm sm:text-base"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage className="text-xs" />
+                            </FormItem>
                           )}
-                        </Button>
-                      </form>
-                    </Form>
-                  </CardContent>
-                </Card>
-              ) : (
-                <Card className="w-full">
-                  <CardHeader className="p-4 sm:p-6">
-                    <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
-                      <Dumbbell className="h-5 w-5" />
-                      Seu Plano Personalizado por IA
-                    </CardTitle>
-                    <CardDescription className="text-sm">
-                      Plano gerado especialmente para você pela nossa Inteligência Artificial
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="prose prose-sm max-w-none dark:prose-invert">
-                      <div className="whitespace-pre-wrap bg-gray-50 dark:bg-gray-800 p-4 sm:p-6 rounded-lg text-sm sm:text-base max-h-[60vh] overflow-y-auto">
-                        {generatedPlan}
+                        />
                       </div>
-                    </div>
-                    <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
-                      <Button 
-                        onClick={() => setGeneratedPlan(null)}
-                        variant="outline"
-                        className="w-full sm:w-auto text-sm sm:text-base h-10 sm:h-auto"
+
+                      <FormField
+                        control={form.control}
+                        name="objetivo"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm sm:text-base">Objetivo Principal</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger className="text-sm sm:text-base">
+                                  <SelectValue placeholder="Selecione seu objetivo" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="emagrecer">Emagrecer</SelectItem>
+                                <SelectItem value="ganhar_massa">Ganhar massa muscular</SelectItem>
+                                <SelectItem value="manter_peso">Manter peso</SelectItem>
+                                <SelectItem value="melhorar_saude">Melhorar saúde geral</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage className="text-xs" />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="rotina"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm sm:text-base">Rotina Diária</FormLabel>
+                            <FormControl>
+                              <Textarea
+                                placeholder="Descreva sua rotina diária (ex: trabalho sentado, 3x por semana na academia, etc.)"
+                                className="resize-none text-sm sm:text-base min-h-[80px] sm:min-h-[100px]"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormDescription className="text-xs">
+                              Isso nos ajuda a adaptar o plano à sua realidade
+                            </FormDescription>
+                            <FormMessage className="text-xs" />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="restricoes"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm sm:text-base">Restrições Alimentares</FormLabel>
+                            <FormControl>
+                              <Textarea
+                                placeholder="Liste qualquer restrição alimentar (ex: intolerância à lactose, vegetariano, etc.)"
+                                className="resize-none text-sm sm:text-base min-h-[80px] sm:min-h-[100px]"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormDescription className="text-xs">
+                              Deixe em branco se não tiver restrições
+                            </FormDescription>
+                            <FormMessage className="text-xs" />
+                          </FormItem>
+                        )}
+                      />
+
+                      <Button
+                        type="submit"
+                        className="w-full h-12 sm:h-auto text-sm sm:text-base"
+                        disabled={isGenerating}
                       >
-                        Gerar Novo Plano com IA
+                        {isGenerating ? (
+                          <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            IA gerando seu plano...
+                          </>
+                        ) : (
+                          "Gerar Meu Plano com IA"
+                        )}
                       </Button>
-                      <Button 
-                        onClick={() => {
-                          navigator.clipboard.writeText(generatedPlan);
-                          toast.success("Plano copiado para a área de transferência!");
-                        }}
-                        className="w-full sm:w-auto text-sm sm:text-base h-10 sm:h-auto"
-                      >
-                        Copiar Plano
-                      </Button>
+                    </form>
+                  </Form>
+                </CardContent>
+              </Card>
+            ) : (
+              <Card className="w-full">
+                <CardHeader className="p-4 sm:p-6">
+                  <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
+                    <Dumbbell className="h-5 w-5" />
+                    Seu Plano Personalizado por IA
+                  </CardTitle>
+                  <CardDescription className="text-sm">
+                    Plano gerado especialmente para você pela nossa Inteligência Artificial
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="p-4 sm:p-6">
+                  <div className="prose prose-sm max-w-none dark:prose-invert">
+                    <div className="whitespace-pre-wrap bg-gray-50 dark:bg-gray-800 p-4 sm:p-6 rounded-lg text-sm sm:text-base max-h-[60vh] overflow-y-auto">
+                      {generatedPlan}
                     </div>
-                  </CardContent>
-                </Card>
-              )}
+                  </div>
+                  <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <Button
+                      onClick={() => setGeneratedPlan(null)}
+                      variant="outline"
+                      className="w-full sm:w-auto text-sm sm:text-base h-10 sm:h-auto"
+                    >
+                      Gerar Novo Plano com IA
+                    </Button>
+                    <Button
+                      onClick={() => {
+                        navigator.clipboard.writeText(generatedPlan);
+                        toast.success("Plano copiado para a área de transferência!");
+                      }}
+                      className="w-full sm:w-auto text-sm sm:text-base h-10 sm:h-auto"
+                    >
+                      Copiar Plano
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
           </div>
         </div>
 
@@ -408,7 +539,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      
+
       {/* Chat Widget */}
       <ChatWidget />
     </div>
