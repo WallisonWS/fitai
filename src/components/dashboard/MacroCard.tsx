@@ -4,43 +4,39 @@ import React from 'react';
 import { CircularProgress } from '../shared/CircularProgress';
 import { Beef, Wheat, Droplet } from 'lucide-react';
 
-type MacroType = 'protein' | 'carbs' | 'fat';
-
 interface MacroCardProps {
-  type: MacroType;
+  label: string;
   value: number;
-  target: number;
+  goal: number;
+  color: 'pink' | 'orange' | 'blue';
 }
 
-const macroConfig = {
-  protein: {
-    label: 'Proteínas',
+const colorConfig = {
+  pink: {
     color: '#E74C3C',
     icon: Beef,
   },
-  carbs: {
-    label: 'Carbos',
+  orange: {
     color: '#F39C12',
     icon: Wheat,
   },
-  fat: {
-    label: 'Gorduras',
+  blue: {
     color: '#3498DB',
     icon: Droplet,
   },
 };
 
-export function MacroCard({ type, value, target }: MacroCardProps) {
-  const config = macroConfig[type];
+export function MacroCard({ label, value, goal, color }: MacroCardProps) {
+  const config = colorConfig[color];
   const Icon = config.icon;
-  const percentage = target > 0 ? (value / target) * 100 : 0;
+  const percentage = goal > 0 ? (value / goal) * 100 : 0;
 
   return (
     <div className="bg-white rounded-2xl p-4 shadow-sm flex flex-col items-center">
       <div className="relative mb-3">
         <CircularProgress
           value={value}
-          max={target}
+          max={goal}
           size={64}
           strokeWidth={6}
           color={config.color}
@@ -54,7 +50,7 @@ export function MacroCard({ type, value, target }: MacroCardProps) {
       </div>
       <div className="text-center">
         <p className="text-2xl font-bold text-black">{value}g</p>
-        <p className="text-xs text-gray-500 mt-0.5">{config.label}</p>
+        <p className="text-xs text-gray-500 mt-0.5">{label}</p>
       </div>
     </div>
   );
