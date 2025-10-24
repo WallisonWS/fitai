@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Header } from '@/components/layout/Header';
 import { BottomNavigation } from '@/components/layout/BottomNavigation';
 import { FloatingButton } from '@/components/layout/FloatingButton';
@@ -9,134 +9,50 @@ import { CalorieCard } from '@/components/dashboard/CalorieCard';
 import { MacroCard } from '@/components/dashboard/MacroCard';
 import { ActionButtons } from '@/components/dashboard/ActionButtons';
 import { MealList } from '@/components/dashboard/MealList';
-import type { Meal, DailyLog } from '@/types';
+import { useFoodContext } from '@/contexts/FoodContext';
 
 export default function HomePage() {
-  const [dailyLog, setDailyLog] = useState<DailyLog>({
-    id: '1',
-    userId: 'user1',
-    date: new Date().toISOString().split('T')[0],
-    targetCalories: 2408,
-    consumedCalories: 706,
-    targetProtein: 120,
-    consumedProtein: 50,
-    targetCarbs: 240,
-    consumedCarbs: 56,
-    targetFat: 60,
-    consumedFat: 31,
-    meals: [],
-    streak: 0,
-  });
+  const { dailyData } = useFoodContext();
 
-  const [meals, setMeals] = useState<Meal[]>([
-    {
-      id: '1',
-      userId: 'user1',
-      name: 'Carne de contra filé grelhada com arroz branco e batata',
-      imageUrl: '/reference/1000357751.jpg',
-      timestamp: new Date(),
-      totalCalories: 706,
-      protein: 50,
-      carbs: 56,
-      fat: 31,
-      healthScore: 7,
-      ingredients: [
-        {
-          id: '1',
-          foodId: 'f1',
-          name: 'Contra filé grelhado',
-          amount: 150,
-          unit: 'g',
-          calories: 367,
-          protein: 35,
-          carbs: 0,
-          fat: 25,
-        },
-        {
-          id: '2',
-          foodId: 'f2',
-          name: 'Arroz branco',
-          amount: 100,
-          unit: 'g',
-          calories: 218,
-          protein: 5,
-          carbs: 45,
-          fat: 1,
-        },
-        {
-          id: '3',
-          foodId: 'f3',
-          name: 'Batata cozida',
-          amount: 100,
-          unit: 'g',
-          calories: 76,
-          protein: 2,
-          carbs: 17,
-          fat: 0,
-        },
-        {
-          id: '4',
-          foodId: 'f4',
-          name: 'Sal',
-          amount: 2,
-          unit: 'g',
-          calories: 0,
-          protein: 0,
-          carbs: 0,
-          fat: 0,
-        },
-        {
-          id: '5',
-          foodId: 'f5',
-          name: 'Óleo de oliva',
-          amount: 5,
-          unit: 'ml',
-          calories: 45,
-          protein: 0,
-          carbs: 0,
-          fat: 5,
-        },
-      ],
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-  ]);
-
-  const remainingCalories = dailyLog.targetCalories - dailyLog.consumedCalories;
+  const caloriesRemaining = dailyData.caloriesGoal - dailyData.caloriesConsumed;
+  const proteinRemaining = dailyData.proteinGoal - dailyData.protein;
+  const carbsRemaining = dailyData.carbsGoal - dailyData.carbs;
+  const fatRemaining = dailyData.fatGoal - dailyData.fat;
 
   return (
-    <div className="min-h-screen bg-background pb-safe">
-      <Header streak={dailyLog.streak} />
+    <div className="min-h-screen bg-gradient-to-b from-[#F5E6F8] to-white pb-24">
+      <Header streak={0} />
       
-      <main className="pt-2">
+      <main className="px-4 py-6 space-y-6">
         {/* Calendário Semanal */}
         <WeekCalendar />
 
         {/* Card de Calorias */}
-        <div className="mt-4">
-          <CalorieCard
-            remaining={remainingCalories}
-            target={dailyLog.targetCalories}
-            consumed={dailyLog.consumedCalories}
-          />
-        </div>
+        <CalorieCard
+          consumed={dailyData.caloriesConsumed}
+          remaining={caloriesRemaining}
+          goal={dailyData.caloriesGoal}
+        />
 
-        {/* Cards de Macronutrientes */}
-        <div className="grid grid-cols-3 gap-3 px-4 mt-4">
+        {/* Cards de Macros */}
+        <div className="grid grid-cols-3 gap-3">
           <MacroCard
-            type="protein"
-            value={dailyLog.consumedProtein}
-            target={dailyLog.targetProtein}
+            label="Proteínas"
+            value={dailyData.protein}
+            goal={dailyData.proteinGoal}
+            color="pink"
           />
           <MacroCard
-            type="carbs"
-            value={dailyLog.consumedCarbs}
-            target={dailyLog.targetCarbs}
+            label="Carbos"
+            value={dailyData.carbs}
+            goal={dailyData.carbsGoal}
+            color="orange"
           />
           <MacroCard
-            type="fat"
-            value={dailyLog.consumedFat}
-            target={dailyLog.targetFat}
+            label="Gorduras"
+            value={dailyData.fat}
+            goal={dailyData.fatGoal}
+            color="blue"
           />
         </div>
 
@@ -144,13 +60,21 @@ export default function HomePage() {
         <ActionButtons />
 
         {/* Lista de Refeições */}
-        <MealList meals={meals} />
+        {dailyData.meals.length > 0 ? (
+          <MealList meals={dailyData.meals} />
+        ) : (
+          <div className="bg-white rounded-3xl p-8 text-center">
+            <p className="text-gray-500 text-sm">
+              Nenhuma refeição registrada hoje.
+            </p>
+            <p className="text-gray-400 text-xs mt-2">
+              Escaneie um alimento para começar!
+            </p>
+          </div>
+        )}
       </main>
 
-      {/* Botão Flutuante */}
-      <FloatingButton onClick={() => alert('Adicionar refeição')} />
-
-      {/* Navegação Inferior */}
+      <FloatingButton />
       <BottomNavigation />
     </div>
   );
